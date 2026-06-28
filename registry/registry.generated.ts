@@ -1410,6 +1410,38 @@ export const registry: RegistryEntry[] = [
     "source": "reactbits-pro/hero/hero-17.tsx"
   },
   {
+    "id": "pro-hero-hero-18",
+    "name": "Hero 18",
+    "group": "sections",
+    "category": "hero",
+    "categoryLabel": "英雄区",
+    "file": "pro-hero-hero-18.tsx",
+    "exportName": "Hero18",
+    "isDefault": false,
+    "deps": [
+      "lucide-react",
+      "motion"
+    ],
+    "heavy": false,
+    "source": "reactbits-pro/hero/hero-18.tsx"
+  },
+  {
+    "id": "pro-hero-hero-19",
+    "name": "Hero 19",
+    "group": "sections",
+    "category": "hero",
+    "categoryLabel": "英雄区",
+    "file": "pro-hero-hero-19.tsx",
+    "exportName": "Hero19",
+    "isDefault": false,
+    "deps": [
+      "lucide-react",
+      "motion"
+    ],
+    "heavy": false,
+    "source": "reactbits-pro/hero/hero-19.tsx"
+  },
+  {
     "id": "pro-hero-hero-2",
     "name": "Hero 2",
     "group": "sections",
@@ -1424,6 +1456,38 @@ export const registry: RegistryEntry[] = [
     ],
     "heavy": false,
     "source": "reactbits-pro/hero/hero-2.tsx"
+  },
+  {
+    "id": "pro-hero-hero-20",
+    "name": "Hero 20",
+    "group": "sections",
+    "category": "hero",
+    "categoryLabel": "英雄区",
+    "file": "pro-hero-hero-20.tsx",
+    "exportName": "Hero20",
+    "isDefault": false,
+    "deps": [
+      "lucide-react",
+      "motion"
+    ],
+    "heavy": false,
+    "source": "reactbits-pro/hero/hero-20.tsx"
+  },
+  {
+    "id": "pro-hero-hero-21",
+    "name": "Hero 21",
+    "group": "sections",
+    "category": "hero",
+    "categoryLabel": "英雄区",
+    "file": "pro-hero-hero-21.tsx",
+    "exportName": "Hero21",
+    "isDefault": false,
+    "deps": [
+      "lucide-react",
+      "motion"
+    ],
+    "heavy": false,
+    "source": "reactbits-pro/hero/hero-21.tsx"
   },
   {
     "id": "pro-hero-hero-3",

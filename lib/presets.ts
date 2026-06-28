@@ -6,6 +6,11 @@ export interface Preset {
   tagline: string;
   accent: string;
   blockIds: string[];
+  /**
+   * 缩略图封面用哪个区块。不填则自动取首个 hero。
+   * 用于避开"封面是动画初始空帧 / 视频黑屏"的区块，改指向有静态图文内容的区块。
+   */
+  coverId?: string;
 }
 
 // Curated presets — composed from real registry ids (verified to exist).
@@ -13,7 +18,8 @@ const RAW: Preset[] = [
   {
     id: "saas",
     name: "SaaS 落地页",
-    tagline: "导航 · 英雄 · 功能 · 价格 · 常见问题 · 页脚 —— 标准 SaaS 转化漏斗",
+    tagline:
+      "导航 · 英雄 · 功能 · 价格 · 常见问题 · 页脚 —— 标准 SaaS 转化漏斗",
     accent: "#7c5cff",
     blockIds: [
       "pro-navigation-navigation-7",
@@ -33,7 +39,7 @@ const RAW: Preset[] = [
     tagline: "强英雄 + 数据 + 案例 + 等候名单 —— 适合新品预热",
     accent: "#00e0c6",
     blockIds: [
-      "pro-navigation-navigation-2",
+      "pro-navigation-navigation-3",
       "pro-hero-hero-10",
       "pro-stats-stats-1",
       "pro-features-features-3",
@@ -84,6 +90,59 @@ const RAW: Preset[] = [
       "pro-features-features-2",
       "pro-cta-cta-3",
       "pro-footer-footer-5",
+    ],
+  },
+
+  // ——— Hero 主题预设：以英雄区为主角，封面即 hero ———
+  {
+    id: "hero-gallery",
+    name: "Hero 画廊",
+    tagline: "精选英雄区合集 —— Bento · 大排版 · 编辑式，一次看遍最出彩的开场",
+    accent: "#5eead4",
+    blockIds: [
+      "pro-navigation-navigation-1",
+      "pro-hero-hero-18",
+      "pro-hero-hero-16",
+      "pro-hero-hero-1",
+      "pro-hero-hero-17",
+      "pro-hero-hero-14",
+      "pro-footer-footer-1",
+    ],
+  },
+  {
+    id: "dev-tool",
+    name: "开发者工具",
+    tagline:
+      "终端开场 + Aurora 渐变 + UI 数据卡 —— 暗色科技感，专为 DevTool 打造",
+    accent: "#818cf8",
+    // 封面避开 hero-20 终端（打字动画初始为空帧→缩略图全黑），改用 hero-21 数据卡（有静态柱状图）
+    coverId: "pro-hero-hero-21",
+    blockIds: [
+      "pro-navigation-navigation-1",
+      "pro-hero-hero-20",
+      "pro-hero-hero-19",
+      "pro-features-features-4",
+      "pro-hero-hero-21",
+      "pro-stats-stats-3",
+      "pro-cta-cta-2",
+      "pro-footer-footer-7",
+    ],
+  },
+  {
+    id: "immersive",
+    name: "沉浸视觉",
+    tagline: "视频与 3D 背景英雄区 —— 满屏视觉冲击，适合品牌站与产品发布",
+    accent: "#fb7185",
+    // 封面避开 hero-9 视频（缩略图无海报→黑屏），改用 hero-1 大图分栏
+    coverId: "pro-hero-hero-1",
+    blockIds: [
+      "pro-navigation-navigation-6",
+      "pro-hero-hero-9",
+      "pro-showcase-showcase-3",
+      "pro-hero-hero-4",
+      "pro-social-proof-social-proof-4",
+      "pro-cta-cta-5",
+      "pro-footer-footer-8",
     ],
   },
 ];
