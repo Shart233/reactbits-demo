@@ -78,6 +78,28 @@ function titleFromId(id) {
 }
 
 async function build() {
+  // If the source libraries aren't present (e.g. on a deploy server that only
+  // cloned reactbits-demo) but a registry was already committed, keep it as-is
+  // instead of regenerating an empty one.
+  const proFilesProbe = await walk(PRO);
+  const twFilesProbe = await walk(TW);
+  if (proFilesProbe.length === 0 && twFilesProbe.length === 0) {
+    let hasCommittedRegistry = false;
+    try {
+      await fs.access(path.join(OUT, "registry.generated.ts"));
+      await fs.access(path.join(OUT, "registry.dynamic.ts"));
+      const comps = await fs.readdir(path.join(OUT, "components"));
+      hasCommittedRegistry = comps.some((f) => f.endsWith(".tsx"));
+    } catch {
+      hasCommittedRegistry = false;
+    }
+    if (hasCommittedRegistry) {
+      console.log("Source libs not found — keeping committed registry (no regeneration).");
+      return;
+    }
+    console.warn("Source libs not found and no committed registry present — output will be empty.");
+  }
+
   const entries = [];
 
   // --- reactbits-pro: grouped by category folder ---
