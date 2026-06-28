@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #07070a;
+  --bg-soft: #0d0e13;
+  --panel: #111219;
+  --panel-2: #15161f;
+  --border: #23252f;
+  --border-soft: #1a1b23;
+  --text: #f4f4f6;
+  --muted: #9a9bab;
+  --muted-2: #6b6c7c;
+  --accent: #7c5cff;
+  --accent-2: #00e0c6;
+  --accent-glow: rgba(124, 92, 255, 0.45);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-border-base: var(--border);
+  --color-text-base: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 99px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-2);
+}
+
+@keyframes rb-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rb-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.rb-fade-up {
+  animation: rb-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rb-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--panel) 0px,
+    var(--panel-2) 200px,
+    var(--panel) 400px
+  );
+  background-size: 800px 100%;
+  animation: rb-shimmer 1.4s linear infinite;
+}
+
+.rb-grid-bg {
+  background-image:
+    linear-gradient(to right, var(--border-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-soft) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.rb-glow {
+  box-shadow: 0 0 0 1px var(--border), 0 8px 40px -12px var(--accent-glow);
+}
+
+.rb-text-gradient {
+  background: linear-gradient(120deg, var(--text) 30%, var(--accent) 70%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
